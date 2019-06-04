@@ -1,5 +1,5 @@
 package com.wmm.designmode.strategymode.strategy;
 
-public interface strategy {
+public interface Strategy {
     void delete();
 }

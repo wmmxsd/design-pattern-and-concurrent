@@ -9,6 +9,7 @@ import java.util.List;
 public class UserService implements BaseService<User> {
     @Override
     public List<User> queryAll() {
+        System.out.println("UserService queryAll");
         return new ArrayList<>();
     }
 }

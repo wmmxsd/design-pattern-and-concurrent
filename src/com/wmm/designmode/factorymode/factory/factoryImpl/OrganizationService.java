@@ -9,6 +9,7 @@ import java.util.List;
 public class OrganizationService implements BaseService<Organization> {
     @Override
     public List<Organization> queryAll() {
+        System.out.println("OrganizationService queryAll");
         return new ArrayList<>();
     }
 }

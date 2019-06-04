@@ -1,4 +1,4 @@
-package decorate;
+package com.wmm.decorate;
 
 /**
  * 装饰器，实现接口

@@ -1,5 +1,8 @@
-package decorate;
+package com.wmm.decorate;
 
+/**
+ * 构造函数传递
+ */
 public class App {
     public static void main(String[] args) {
         //要装饰的实体类

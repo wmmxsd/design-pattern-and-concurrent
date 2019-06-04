@@ -1,4 +1,4 @@
-package proxy.StaticProxy;
+package com.wmm.proxy.StaticProxy;
 
 public class UserServiceProxy implements BaseService{
     private UserService userService;

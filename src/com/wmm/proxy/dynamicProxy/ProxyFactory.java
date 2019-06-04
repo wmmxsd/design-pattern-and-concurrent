@@ -1,4 +1,4 @@
-package proxy.dynamicProxy;
+package com.wmm.proxy.dynamicProxy;
 
 import java.lang.reflect.Proxy;
 

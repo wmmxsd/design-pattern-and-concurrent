@@ -1,4 +1,4 @@
-package decorate;
+package com.wmm.decorate;
 
 public class Iphone implements Phone{
     @Override

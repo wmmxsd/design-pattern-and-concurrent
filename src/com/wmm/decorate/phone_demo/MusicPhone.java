@@ -1,4 +1,4 @@
-package com.wmm.decorate;
+package com.wmm.decorate.phone_demo;
 
 public class MusicPhone extends PhoneDecorate{
 

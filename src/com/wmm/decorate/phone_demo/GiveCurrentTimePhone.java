@@ -1,4 +1,4 @@
-package com.wmm.decorate;
+package com.wmm.decorate.phone_demo;
 
 // 这里继承的是MusicPhone装饰器类
 public class GiveCurrentTimePhone extends PhoneDecorate {

@@ -23,7 +23,7 @@ public class ScheduledExecutorServiceDemo {
                     e.printStackTrace();
                 }
             }
-        }, 0, 2, TimeUnit.SECONDS);
+        }, 0, 1, TimeUnit.MINUTES);
     }
 
 }

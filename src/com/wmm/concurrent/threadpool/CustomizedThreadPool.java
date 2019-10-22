@@ -9,14 +9,8 @@ import java.util.concurrent.*;
  */
 public class CustomizedThreadPool {
     public static void main(String[] args) {
-        ThreadFactory threadFactory = new ThreadFactory() {
-            @Override
-            public Thread newThread(Runnable r) {
-                return new Thread(new ThreadGroup("TEST"), r, "demo-pool-%d");
-            }
-        };
-        ExecutorService threadPool =
-                new ThreadPoolExecutor(1, 2, 0L, TimeUnit.MICROSECONDS, new LinkedBlockingQueue<>(), threadFactory,  new ThreadPoolExecutor.AbortPolicy());
+        ThreadFactory threadFactory = r -> new Thread(new ThreadGroup("TEST"), r, "demo-pool-%d");
+        ExecutorService threadPool = new ThreadPoolExecutor(2, 2, 0L, TimeUnit.MICROSECONDS, new LinkedBlockingQueue<>(), threadFactory, new ThreadPoolExecutor.AbortPolicy());
         threadPool.submit(new Callable<Object>() {
             @Override
             public String call() throws Exception {
@@ -28,7 +22,7 @@ public class CustomizedThreadPool {
         });
         threadPool.submit(new Runnable() {
             @Override
-            public void run()  {
+            public void run() {
                 while (true) {
                     System.out.println("loop1111ing.");
                     try {

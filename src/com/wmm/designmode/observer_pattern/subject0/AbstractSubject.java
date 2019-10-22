@@ -14,7 +14,7 @@ public abstract class AbstractSubject {
     /**
      * 队列
      */
-    List<Observer> observers = new ArrayList<Observer>();
+    List<Observer> observers = new ArrayList<>();
 
     /**
      * 增加观察者方法

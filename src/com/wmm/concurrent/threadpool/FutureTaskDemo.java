@@ -8,7 +8,7 @@ import java.util.concurrent.*;
  * @date @2019/8/12 15:11
  */
 public class FutureTaskDemo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         ThreadFactory threadFactory = new ThreadFactory() {
             @Override
             public Thread newThread(Runnable r) {
@@ -19,12 +19,13 @@ public class FutureTaskDemo {
         Task task0 = new Task();
         ExecutorService executorService = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>(), threadFactory, new ThreadPoolExecutor.AbortPolicy());
         Future<Integer> future0 = executorService.submit(task0);
-        executorService.shutdown();
+        System.out.println(future0.get());
 
         //第二种方式: FutureTask + ExecutorService
         Task task1 = new Task();
         FutureTask<Integer> futureTask = new FutureTask<>(task1);
         executorService.submit(futureTask);
+        System.out.println(futureTask.get());
         executorService.shutdown();
     }
 

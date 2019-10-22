@@ -12,7 +12,7 @@ public class ThreadLocalExample {
 
         @Override
         public void run() {
-            threadLocal.set((int) (Math.random() * 100D));
+            threadLocal.set(2);
 
             try {
                 Thread.sleep(2000);

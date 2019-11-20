@@ -1,4 +1,4 @@
-package com.wmm.concurrent.semaphore.simple_semaphore;
+package com.wmm.concurrent.semaphore.simple;
 
 /**
  * @author wangmingming160328
@@ -13,15 +13,19 @@ public class Semaphore {
     }
 
 
-    public synchronized void take() {
+    synchronized void take() {
         this.signal = true;
+        System.out.println(Thread.currentThread().getName() + "的take方法中的signal为：true");
+        //this.notify()代表唤醒当前线程，RecevingThread和SendingThread的实例，与Semaphore实例无关
         this.notify();
     }
 
     public synchronized void release() {
         while (!this.signal) {
             try {
-                wait();
+                System.out.println(Thread.currentThread().getName() + "的release方法中的signal为：false");
+                //this.wait()代表当前线程处于等待状态，RecevingThread和SendingThread的实例，与Semaphore实例无关
+                this.wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

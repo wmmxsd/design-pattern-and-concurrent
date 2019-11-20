@@ -1,4 +1,4 @@
-package com.wmm.concurrent.semaphore.simple_semaphore;
+package com.wmm.concurrent.semaphore.simple;
 
 /**
  * @author wangmingming160328

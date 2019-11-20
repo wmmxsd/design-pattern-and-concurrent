@@ -1,15 +1,15 @@
 package com.wmm.concurrent.theadlocal;
 
 /**
+ * ThreadLocal是线程私有变量，其他线程修改ThreadLocal类型的变量后，当前变量的值不会改变。
  * @author wangmingming160328
  * @Description 线程池Demo
  * @date @2019/7/18 15:08
  */
 public class ThreadLocalExample {
+    private static ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
+
     public static class MyRunnable implements Runnable {
-
-        private ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
-
         @Override
         public void run() {
             threadLocal.set(2);
@@ -20,11 +20,12 @@ public class ThreadLocalExample {
                 e.printStackTrace();
             }
 
-            System.out.println(threadLocal.get());
+            System.out.println(Thread.currentThread().getName() + "：" + threadLocal.get());
         }
     }
 
     public static void main(String[] args) {
+        threadLocal.set(3);
         MyRunnable sharedRunnableInstance = new MyRunnable();
 
         Thread thread1 = new Thread(sharedRunnableInstance);
@@ -36,6 +37,7 @@ public class ThreadLocalExample {
         try {
             thread1.join(); //wait for thread 1 to terminate
             thread2.join(); //wait for thread 2 to terminate
+            System.out.println(Thread.currentThread().getName() + "：" + threadLocal.get());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

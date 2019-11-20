@@ -1,4 +1,4 @@
-package com.wmm.concurrent.semaphore.simple_semaphore;
+package com.wmm.concurrent.semaphore.simple;
 
 
 /**
@@ -7,9 +7,9 @@ package com.wmm.concurrent.semaphore.simple_semaphore;
  * @date @2019/7/22 19:13
  */
 public class SendingThread extends Thread{
-    Semaphore semaphore = null;
+    private Semaphore semaphore = null;
 
-    public SendingThread(Semaphore semaphore) {
+    SendingThread(Semaphore semaphore) {
         this.semaphore = semaphore;
     }
 
@@ -17,10 +17,14 @@ public class SendingThread extends Thread{
     public void run() {
         while (true) {
             //do something, then signal
-
             this.semaphore.take();
             System.out.println(Thread.currentThread().getName() + ":SendingThread");
             this.semaphore.release();
+            try {
+                Thread.sleep(400L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

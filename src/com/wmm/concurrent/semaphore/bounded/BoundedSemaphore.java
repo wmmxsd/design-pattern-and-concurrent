@@ -1,4 +1,4 @@
-package com.wmm.concurrent.semaphore.countingsemaphore;
+package com.wmm.concurrent.semaphore.bounded;
 
 /**
  * 一个 <i>countingSemaphore</i> 是一个可计数的信号量。
@@ -10,11 +10,11 @@ package com.wmm.concurrent.semaphore.countingsemaphore;
  * @author wangmingming160328
  * @date @2019/7/23 10:35
  */
-public class CountingSemaphore {
+public class BoundedSemaphore {
     private int signals = 0;
     private int bound;
 
-    public CountingSemaphore(int bound) {
+    public BoundedSemaphore(int bound) {
         this.bound = bound;
     }
 

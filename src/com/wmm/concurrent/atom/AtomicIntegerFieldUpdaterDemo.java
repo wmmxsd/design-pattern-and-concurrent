@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 public class AtomicIntegerFieldUpdaterDemo {
     private class Device {
         volatile String id;
-        private  String name;
+        volatile  String name;
 
         public Device(String id, String name) {
             this.id = id;
@@ -27,10 +27,13 @@ public class AtomicIntegerFieldUpdaterDemo {
     public static void main(String[] args) {
         AtomicIntegerFieldUpdaterDemo demo = new AtomicIntegerFieldUpdaterDemo();
         AtomicIntegerFieldUpdaterDemo.Device device = demo.new Device("32d421", "worker");
-        AtomicReferenceFieldUpdater<Device, String> deviceAtomicIntegerFieldUpdater = AtomicReferenceFieldUpdater.newUpdater(Device.class, String.class, "id");
+        System.out.println(device);
+        AtomicReferenceFieldUpdater<Device, String> deviceAtomicIntegerFieldUpdater = AtomicReferenceFieldUpdater.newUpdater(Device.class, String.class, "name");
 
         System.out.println(deviceAtomicIntegerFieldUpdater.get(device));
-        System.out.println(deviceAtomicIntegerFieldUpdater.compareAndSet(device, "32d421", "wmm"));
+        System.out.println(deviceAtomicIntegerFieldUpdater.compareAndSet(device, "worker", "wmm"));
+        System.out.println(deviceAtomicIntegerFieldUpdater.get(device));
+        deviceAtomicIntegerFieldUpdater.getAndSet(device, "1");
         System.out.println(deviceAtomicIntegerFieldUpdater.get(device));
     }
 }

@@ -9,11 +9,12 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @date @2019/10/23 14:57
  */
 public class App {
-    private final BlockingQueue blockingQueue = new BlockingQueue(2);
+    private final BlockingQueue blockingQueue = new BlockingQueue(5);
 
     private void execute() {
         ExecutorService executorService = new ThreadPoolExecutor(300, 300, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue<>(), new ThreadFactory() {
             private final AtomicInteger mThreadNum = new AtomicInteger(0);
+
             @Override
             public Thread newThread(Runnable r) {
                 return new Thread(r, "my-thread-" + mThreadNum.getAndIncrement());

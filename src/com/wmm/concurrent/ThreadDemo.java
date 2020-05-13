@@ -20,7 +20,7 @@ public class ThreadDemo extends Thread{
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                System.out.println("ThreadDemo running");
+                System.out.println("ThreadDemo running1");
             }
         });
         thread.start();
@@ -40,9 +40,9 @@ public class ThreadDemo extends Thread{
     }
 
     public static void main(String[] args) {
-//        startThread();
+        startThread();
 
-        startTenThread();
+//        startTenThread();
     }
 
 }

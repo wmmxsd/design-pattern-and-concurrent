@@ -8,11 +8,13 @@ package com.wmm.concurrent.theadlocal;
  */
 public class ThreadLocalExample {
     private static ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
+    private static int count = 1;
 
     public static class MyRunnable implements Runnable {
         @Override
         public void run() {
             threadLocal.set(2);
+            count = 2;
 
             try {
                 Thread.sleep(2000);
@@ -20,12 +22,13 @@ public class ThreadLocalExample {
                 e.printStackTrace();
             }
 
-            System.out.println(Thread.currentThread().getName() + "：" + threadLocal.get());
+            System.out.println(Thread.currentThread().getName() + "：threadLocal = " + threadLocal.get() + "; count = " + count);
         }
     }
 
     public static void main(String[] args) {
         threadLocal.set(3);
+        count = 3;
         MyRunnable sharedRunnableInstance = new MyRunnable();
 
         Thread thread1 = new Thread(sharedRunnableInstance);
@@ -37,7 +40,7 @@ public class ThreadLocalExample {
         try {
             thread1.join(); //wait for thread 1 to terminate
             thread2.join(); //wait for thread 2 to terminate
-            System.out.println(Thread.currentThread().getName() + "：" + threadLocal.get());
+            System.out.println(Thread.currentThread().getName() + "：threadLocal = " + threadLocal.get() + "; count = " + count);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -16,6 +16,11 @@ public class BlockingQueue {
         this.limit = limit;
     }
 
+    /**
+     * 入队
+     * @param object
+     * @throws InterruptedException
+     */
     public synchronized void enqueue(Object object) throws InterruptedException{
         if (queue.size() == 0) {
             notifyAll();

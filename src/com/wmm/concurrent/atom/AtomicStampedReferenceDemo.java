@@ -17,7 +17,7 @@ public class AtomicStampedReferenceDemo {
         System.out.println(result);
         System.out.println("reference：" + stampedReference.getReference() + "; stamp：" + stampedReference.getStamp());
 
-        boolean result1 = stampedReference.compareAndSet(2, 3, 2, -1);
+        boolean result1 = stampedReference.compareAndSet(2, 3, 2, 3);
         System.out.println(result1);
         System.out.println("reference：" + stampedReference.getReference() + "; stamp：" + stampedReference.getStamp());
     }

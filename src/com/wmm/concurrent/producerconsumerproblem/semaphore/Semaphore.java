@@ -7,8 +7,17 @@ package com.wmm.concurrent.producerconsumerproblem.semaphore;
  */
 public class Semaphore {
     protected static Integer count = 0;
+    /**
+     *  非满锁
+     */
     protected static final java.util.concurrent.Semaphore NOT_FULL = new java.util.concurrent.Semaphore(10);
+    /**
+     * 非空锁
+     */
     protected static final java.util.concurrent.Semaphore NOT_EMPTY = new java.util.concurrent.Semaphore(0);
+    /**
+     * 同步锁
+     */
     protected static final java.util.concurrent.Semaphore MUTEX = new java.util.concurrent.Semaphore(1);
 }
 

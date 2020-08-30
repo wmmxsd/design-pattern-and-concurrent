@@ -12,13 +12,13 @@ public class WeakReferenceDemo {
 
     public static void main(String[] args) {
         gcTest();
-        //可以输出hello值，此时两个弱引用扔持有对象，而且未进行gc
+        //可以输出hello值，此时两个引用扔持有对象，而且未进行gc
         System.out.println("未进行gc时，只有弱引用指向value内存区域：" + weakReference.get());
 
-        //此时已无强一用执行"value"所在内存区域，gc时会回收弱引用
+        //此时已无引用指向"value"所在内存区域，gc时会回收弱引用
         System.gc();
 
-        //此时输出都为null
+        //此时输出为null
         System.out.println("进行gc时，只有弱引用指向value内存区域：" + weakReference.get());
     }
     private static void gcTest() {

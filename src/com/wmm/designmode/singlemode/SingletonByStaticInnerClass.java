@@ -5,10 +5,10 @@ public class SingletonByStaticInnerClass {
     }
 
     private static class LazyHolder {
-        private static final SingletonByStaticInnerClass instanche = new SingletonByStaticInnerClass();
+        private static final SingletonByStaticInnerClass INSTANCHE = new SingletonByStaticInnerClass();
     }
 
-    public SingletonByStaticInnerClass getInstanche () {
-        return LazyHolder.instanche;
+    public SingletonByStaticInnerClass getInstanche() {
+        return LazyHolder.INSTANCHE;
     }
 }

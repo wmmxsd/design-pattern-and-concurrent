@@ -15,6 +15,7 @@ public class Consumer extends Semaphore implements com.wmm.concurrent.producerco
                e.printStackTrace();
            }
            try {
+               //控制消费速度
                NOT_EMPTY.acquire();
                MUTEX.acquire();
                count--;
@@ -24,6 +25,7 @@ public class Consumer extends Semaphore implements com.wmm.concurrent.producerco
                e.printStackTrace();
            } finally {
                MUTEX.release();
+               //控制生产速度
                NOT_FULL.release();
            }
        }

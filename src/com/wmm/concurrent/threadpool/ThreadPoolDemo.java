@@ -19,7 +19,7 @@ public class ThreadPoolDemo {
         ExecutorService executorService1 = newCachedThreadPool();
         //new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
         ExecutorService executorService2 = newFixedThreadPool(2);
-        //new ThreadPoolExecutor(nThreads, nThreads, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>());
+        //new `ThreadPoolExecutor`(nThreads, nThreads, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>());
         ExecutorService executorService3 = newScheduledThreadPool(2);
         //new ThreadPoolExecutor(corePoolSize, Integer.MAX_VALUE, 0, NANOSECONDS, new ScheduledThreadPoolExecutor.DelayedWorkQueue());
         ExecutorService executorService4 = newWorkStealingPool();

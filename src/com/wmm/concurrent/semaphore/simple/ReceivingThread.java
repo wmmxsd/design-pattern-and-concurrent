@@ -5,25 +5,22 @@ package com.wmm.concurrent.semaphore.simple;
  * @Description
  * @date @2019/7/22 19:15
  */
-public class RecevingThread  extends Thread{
+public class ReceivingThread extends Thread {
 
-    private Semaphore semaphore;
+    private final Semaphore semaphore;
 
-    RecevingThread(Semaphore semaphore){
-
+    public ReceivingThread(String name, Semaphore semaphore) {
+        super(name);
         this.semaphore = semaphore;
-
     }
 
     @Override
-    public void run(){
-
-        while(true){
+    public void run() {
+        while (true) {
             this.semaphore.take();
-            System.out.println(Thread.currentThread().getName() + ":RecevingThread");
-            this.semaphore.release();
             try {
-                Thread.sleep(400L);
+                Thread.sleep(4000L);
+                this.semaphore.release();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

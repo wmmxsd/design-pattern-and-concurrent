@@ -15,7 +15,7 @@ public class Semaphore {
 
     synchronized void take() {
         this.signal = true;
-        System.out.println(Thread.currentThread().getName() + "的take方法中的signal为：true");
+        System.out.println(Thread.currentThread().getName() + "获取锁");
         //this.notify()代表唤醒当前线程，RecevingThread和SendingThread的实例，与Semaphore实例无关
         this.notify();
     }
@@ -23,8 +23,8 @@ public class Semaphore {
     public synchronized void release() {
         while (!this.signal) {
             try {
-                System.out.println(Thread.currentThread().getName() + "的release方法中的signal为：false");
-                //this.wait()代表当前线程处于等待状态，RecevingThread和SendingThread的实例，与Semaphore实例无关
+                System.out.println(Thread.currentThread().getName() + "释放锁");
+                //this.wait()代表当前线程处于等待状态，ReceivingThread和SendingThread的实例，与Semaphore实例无关
                 this.wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();

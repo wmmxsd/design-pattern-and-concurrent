@@ -23,6 +23,6 @@ public class RecevingThread extends Thread {
                 e.printStackTrace();
             }
         }
-//            System.out.println(Thread.currentThread().getName() + " ——  RecevingThread：signals = " + this.boundedSemaphore.getSignals());
+//            System.out.println(Thread.currentThread().getName() + " ——  ReceivingThread：signals = " + this.boundedSemaphore.getSignals());
     }
 }

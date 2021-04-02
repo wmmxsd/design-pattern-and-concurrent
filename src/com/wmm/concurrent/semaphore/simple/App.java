@@ -8,13 +8,9 @@ package com.wmm.concurrent.semaphore.simple;
 public class App {
     public static void main(String[] args) {
         Semaphore semaphore = new Semaphore();
-
-        SendingThread sender = new SendingThread(semaphore);
-
-        RecevingThread receiver = new RecevingThread(semaphore);
-
+        SendingThread sender = new SendingThread(" Thread-send-0", semaphore);
+        ReceivingThread receiver = new ReceivingThread(" Thread-receive-0", semaphore);
         receiver.start();
-
         sender.start();
     }
 }

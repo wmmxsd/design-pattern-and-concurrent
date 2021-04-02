@@ -17,12 +17,7 @@ public class ThreadDemo extends Thread{
         threadDemo.start();
 
         //第二种方式，new一个Thread的匿名子类的实例
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("ThreadDemo running1");
-            }
-        });
+        Thread thread = new Thread(() -> System.out.println("ThreadDemo running1"));
         thread.start();
     }
 
